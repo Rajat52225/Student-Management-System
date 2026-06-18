@@ -7,16 +7,9 @@ import java.util.List;
 
 @Service
 public class StudentService {
-    public Student getStudent() {
-        return new Student(
-                "Rajat",
-                "rajat@gmail.com",
-                20
-        );
-    }
+    private List<Student> students= new ArrayList<>();
 
-    public List<Student> getStudents() {
-        List<Student> students = new ArrayList<>();
+    public StudentService(){
         students.add(
                 new Student(
                         "Rajat",
@@ -31,6 +24,19 @@ public class StudentService {
                         35
                 )
         );
+    }
+
+    public Student getStudent() {
+        return new Student(
+                "Rajat",
+                "rajat@gmail.com",
+                20
+        );
+    }
+    public List<Student> getStudents() {
         return students;
+    }
+    public void addStudent(Student student){
+        students.add(student);
     }
 }
