@@ -39,4 +39,22 @@ public class StudentService {
     public void addStudent(Student student){
         students.add(student);
     }
+    public void deleteStudent(String email){
+        for(int i=0;i<students.size();i++){
+            if(students.get(i).getEmail().equals(email)){
+                 students.remove(i);
+                 break;
+            }
+        }
+    }
+    public void updateStudent(String email,Student updateStudent){
+        for(int i=0;i<students.size();i++){
+            if(students.get(i).getEmail().equals(email)){
+                students.get(i).setName(updateStudent.getName());
+                students.get(i).setEmail(updateStudent.getEmail());
+                students.get(i).setAge(updateStudent.getAge());
+                break;
+            }
+        }
+    }
 }

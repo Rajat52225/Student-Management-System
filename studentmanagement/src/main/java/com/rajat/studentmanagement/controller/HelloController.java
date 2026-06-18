@@ -2,10 +2,8 @@ package com.rajat.studentmanagement.controller;
 
 import com.rajat.studentmanagement.model.Student;
 import com.rajat.studentmanagement.service.StudentService;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
 import java.util.List;
 
 @RestController
@@ -32,5 +30,15 @@ public class HelloController {
     @PostMapping("/students")
     public void addStudent(@RequestBody Student student){
         studentService.addStudent(student);
+    }
+    @DeleteMapping("/students/{email}")
+    public void deleteStudent(@PathVariable String email){
+        studentService.deleteStudent(email);
+    }
+    @PutMapping("/students/{email}")
+    public void updateStudent(
+            @PathVariable String email,
+            @RequestBody Student updateStudent){
+        studentService.updateStudent(email,updateStudent);
     }
 }
