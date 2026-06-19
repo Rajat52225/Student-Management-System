@@ -1,10 +1,19 @@
 package com.rajat.studentmanagement.model;
 
+
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
+
+@Document(collection="students")
 public class Student {
     private String name;
+    @Id
     private String email;
     private int age;
 
+    public Student(){
+
+    }
     public Student(String name, String email, int age) {
         this.name = name;
         this.email = email;
